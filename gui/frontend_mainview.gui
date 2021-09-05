@@ -1,0 +1,1303 @@
+﻿types Frontend
+{
+	type frontend_bottom_right_spacer = widget {
+		size = { 20 0 }
+	}
+}
+
+template progressbar_aqua_marine
+{
+	progresstexture = "gfx/interface/base_parts/progressbar_white_tile.dds" 
+	color = { 0.25 0.99 1 1 }
+
+	block "L_bar"
+	{
+		spriteType = Corneredtiled
+		spriteborder = { 0 1 }
+	}
+}
+
+texticon = {
+    icon = bullet_point_black
+    iconsize = {
+        texture = "gfx/resume/bullet_point.png"
+        size = { 25 25 }
+        offset = { 0 6 }
+        fontsize = 23
+    }
+}
+
+@decoration_alpha = 0.4
+
+@subheader_size = 875
+
+widget = {
+	name = "mainmenu_panel_bottom"
+	size = { 100% 100% }
+	
+	proportional_icon = {
+		texture = "gfx/loadingscreens/load_9.dds"
+		size = { 100% 100% } 
+	}
+
+	icon = {
+		name = "cloud_save_indicator"
+		position = { -180 5 }
+		parentanchor = top|right
+		texture = "gfx/interface/cloud_uplink.dds"
+		shaderfile = "gfx/FX/pdxgui_glow_game.shader"
+		tooltip = "CLOUD_SAVE_IN_PROGRESS_TOOLTIP"
+		visible = "[GameIsCloudStorageOperationInProgress]"
+	}
+
+	
+	icon = {
+		name = "clausewitz_logo"
+		position = { -160 0 }
+		parentanchor = bottom|right
+		texture = "gfx/interface/clausewitz_logo.dds"
+		scale = 0.9
+		shaderfile = "gfx/FX/pdxgui_glow_game.shader"
+	}
+	
+	icon = {
+		name = "pdx_dev_logo"
+		position = { -40 0 }
+		parentanchor = bottom|right
+		texture = "gfx/interface/pdx_dev_logo_s.dds"
+		scale = 0.9
+		shaderfile = "gfx/FX/pdxgui_glow_game.shader"
+	}
+	
+	widget = {
+		name "main_menu_banner_bit"
+		size = { 398 886 }
+		position = { 252 0 }
+		scissor = yes
+
+		background = {
+			shaderfile = "gfx/FX/pdxgui_default.shader"
+			texture = "gfx/interface/base_parts/background_black_texture.dds"
+			spriteType = Corneredtiled
+			alpha = 0.8
+			
+			modify_texture = {
+				name = "Alpha"
+				texture = "gfx/interface/base_parts/background_x60bd_alpha.dds"
+				blend_mode = alphamultiply
+				spriteType = Corneredtiled
+				spriteborder = { 60 60 }
+			}
+		}
+
+		icon = {
+			texture = "gfx/interface/base_parts/background_black_texture.dds"
+			size = { 388 10 }
+			parentanchor = hcenter
+			spriteType = Corneredtiled
+			alpha = 0.8
+			#modify_texture = {
+			#	name = "Alpha"
+			#	texture = "gfx/interface/base_parts/background_x60bd_alpha.dds"
+			#	blend_mode = alphamultiply
+			#	spriteType = Corneredtiled
+			#	spriteborder = { 60 60 }
+			#}
+		}
+
+		menu_header = {
+			size = { 398 40 }
+			position = { 0 10 }
+			blockoverride "Title_text" { visible = no }
+		}
+
+		flowcontainer = {
+			parentanchor = hcenter
+			position = { 0 120 }
+			direction = vertical 
+			spacing = 28
+
+			icon = {
+				name = "game_logo"
+				parentanchor = hcenter
+				texture = "gfx/interface/frontend/game_logo_main_menu.dds"
+				scale = 0.8
+				shaderfile = "gfx/FX/pdxgui_glow_game.shader"
+			}
+
+			widget = {
+				name = "adds correct spacing between logo and menu item buttons"
+				size = { 0 0 }
+			}
+
+			flowcontainer = {
+				name = "vertical menu item buttons"
+				direction = vertical
+				spacing = 30
+				parentanchor = hcenter
+
+				margin_widget = {
+					size = { 376 48 }
+					parentanchor = hcenter
+					
+					frontend_button = {
+						size = { 100% 100% }
+						blockoverride "Text" { text = "Resume" }
+						blockoverride "On_click" {
+							onclick = "[GetVariableSystem.Toggle('Resume')]"
+						}
+					}
+				}
+				
+				margin_widget = {
+					size = { 376 48 }
+					parentanchor = hcenter
+					
+					frontend_button = {
+						size = { 100% 100% }
+						blockoverride "Text" { text = "SETTINGS_FRONTEND" }
+						blockoverride "On_click" { onclick = "[FrontEndMainView.OnSettings]" }
+					}
+				}
+				
+				margin_widget = {
+					size = { 376 48 }
+					parentanchor = hcenter
+					
+					frontend_button = {
+						size = { 100% 100% }
+						blockoverride "Text" { text = "CREDITS" }
+						blockoverride "On_click" { onclick = "[FrontEndMainView.OnCredits]" }
+					}
+				}
+				
+				margin_widget = {
+					size = { 376 48 }
+					parentanchor = hcenter
+					
+					frontend_button = {
+						size = { 100% 100% }
+						blockoverride "Text" 
+						{ 
+							text = "EXIT_FRONTEND" 
+						}
+						blockoverride "On_click" 
+						{ 
+							onclick = "[FrontEndMainView.OnQuit]" 
+						}
+					}
+				}
+			}
+		}
+
+		icon = { 
+			position = { 0 278 }
+			parentanchor = hcenter
+			texture = "gfx/interface/base_parts/start_menu_horizontal_line_medium.dds"
+			scale = 0.93
+			alpha = @decoration_alpha
+		}
+
+		icon = { 
+			position = { 0 290 }
+			parentanchor = hcenter
+			texture = "gfx/interface/base_parts/start_menu_horizontal_line_small.dds"
+			alpha = @decoration_alpha
+			mirror = vertical
+			scale = 0.93
+		}
+
+		icon = { 
+			position = { 0 724 }
+			parentanchor = hcenter
+			texture = "gfx/interface/base_parts/start_menu_horizontal_line_small.dds"
+			alpha = @decoration_alpha
+			scale = 0.93
+		}
+
+		icon = { 
+			position = { 0 736 }
+			parentanchor = hcenter
+			texture = "gfx/interface/base_parts/start_menu_horizontal_line_medium.dds"
+			alpha = @decoration_alpha
+			mirror = vertical
+			scale = 0.93
+		}
+
+		icon = { 
+			position = { 14 0 }
+			parentanchor = vcenter
+			texture = "gfx/interface/base_parts/start_menu_vertical_line.dds"
+			alpha = @decoration_alpha
+			scale = 0.98
+		}
+
+		icon = { 
+			position = { -14 0 }
+			parentanchor = right|vcenter
+			texture = "gfx/interface/base_parts/start_menu_vertical_line.dds"
+			mirror = horizontal
+			alpha = @decoration_alpha
+			scale = 0.98
+		}
+
+		icon = { 
+			position = { 0 40 }
+			parentanchor = bottom|hcenter
+			texture = "gfx/interface/base_parts/wheel_start_menu.dds"
+			mirror = vertical
+			alpha = @decoration_alpha
+			scale = 0.78
+		}
+
+		menu_footer = {
+			size = { 398 40 }
+			parentanchor = bottom|hcenter
+		}
+	}
+	
+	textbox = {
+		parentanchor = bottom|right
+		widgetanchor = bottom|right
+		position = { -280 6 }
+		name = "version_label"
+		text = "[GetCompleteVersionInfoString]"
+		size = { 400 120 }
+		using = MarbleButtonFont
+		using = Highlight_FontColor
+		multiline = yes
+		fontsize = 16
+		align = right
+	}
+	
+	container = {
+		position = { 28 -8 }
+		background = {
+			shaderfile = "gfx/FX/pdxgui_default.shader"
+			using = flat_background_white
+			spriteType = Corneredtiled
+			alpha = 0.95
+			
+			modify_texture = {
+				name = "Alpha"
+				texture = "gfx/interface/base_parts/background_x60bd_alpha.dds"
+				blend_mode = alphamultiply
+				spriteType = Corneredtiled
+				spriteborder = { 60 60 }
+			}
+		}
+		
+		pops_status_widget = {
+			name = "pops_test"
+		}
+	}
+	
+	base_window = {
+		name = "resume"
+		size = { 1500 900 }
+		visible = "[GetVariableSystem.Exists('Resume')]"
+		allow_outside = yes
+		parentanchor = center
+
+		vbox = {
+			visible = yes
+			using = MainWindowHeaderBox
+			position = { 0 -415 }
+			blockoverride "White_buttons"
+			{
+				button_close = {
+					onclick = "[GetVariableSystem.Toggle('Resume')]"
+					tooltip = "CLOSE"
+					shortcut = "close_window"
+				}
+			}
+			blockoverride "Title_text"
+			{
+				text = "Resume"
+				tooltip = "RESUME_HEADER_TT"
+				margin_left = 13
+			}
+		}
+		widget = {
+			name = "resume_window"
+			#using = NoninteractableBG
+			size = { 100% 100% }
+			position = { 19 75 }
+			parentanchor = top|hcenter
+
+			flowcontainer = {
+				name = "resume_sections"
+				direction = vertical
+				parentanchor = top|left
+
+				widget = {
+					name = "projects_file"
+					size = { 187 48 }
+					list_button = {
+						size = { 100% 100% }
+						align = left
+						onclick = "[GetVariableSystem.Set('ResumeSection', 'Projects')]"
+						down = "[GetVariableSystem.HasValue('ResumeSection', 'Projects')]"
+					}
+					textbox = {
+						text = "Projects"
+						autoresize = yes
+						parentanchor = center
+						align = center
+						using = BaseFontM
+						using = Black_FontColor
+						fontsize = 19
+					}
+				}
+				widget = {
+					name = "skills_page"
+					size = { 187 48 }
+					list_button = {
+						size = { 100% 100% }
+						align = left
+						onclick = "[GetVariableSystem.Clear('ResumeSection')]"
+						down = "[Not(GetVariableSystem.Exists('ResumeSection'))]"
+					}
+					textbox = {
+						text = "Skills"
+						autoresize = yes
+						parentanchor = center
+						align = center
+						using = BaseFontM
+						using = Black_FontColor
+						fontsize = 19
+					}
+				}
+				widget = {
+					name = "hobbies_page"
+					size = { 187 48 }
+					list_button = {
+						size = { 100% 100% }
+						align = left
+						onclick = "[GetVariableSystem.Set('ResumeSection', 'Hobbies')]"
+						down = "[GetVariableSystem.HasValue('ResumeSection', 'Hobbies')]"
+					}
+					textbox = {
+						text = "Hobbies"
+						autoresize = yes
+						parentanchor = center
+						align = center
+						using = BaseFontM
+						using = Black_FontColor
+						fontsize = 19
+					}
+				}
+				widget = {
+					name = "profile_page"
+					size = { 187 48 }
+					list_button = {
+						size = { 100% 100% }
+						align = left
+						onclick = "[GetVariableSystem.Set('ResumeSection', 'Profile')]"
+						down = "[GetVariableSystem.HasValue('ResumeSection', 'Profile')]"
+					}
+					textbox = {
+						text = "Profile"
+						autoresize = yes
+						parentanchor = center
+						align = center
+						using = BaseFontM
+						using = Black_FontColor
+						fontsize = 19
+					}
+				}
+				widget = {
+					name = "objective_page"
+					size = { 187 48 }
+					list_button = {
+						size = { 100% 100% }
+						align = left
+						onclick = "[GetVariableSystem.Set('ResumeSection', 'Objective')]"
+						down = "[GetVariableSystem.HasValue('ResumeSection', 'Objective')]"
+					}
+					textbox = {
+						text = "Objective"
+						autoresize = yes
+						parentanchor = center
+						align = center
+						using = BaseFontM
+						using = Black_FontColor
+						fontsize = 19
+					}
+				}
+			}
+
+			icon = {
+				name = "divider"
+				size = { 4 795 }
+				position = { 200 0 }
+				texture = "gfx/interface/base_parts/background_black_texture.dds"
+				framesize = { 600 600 }
+				alpha = 0.8
+				parentanchor = top|left
+				modify_texture = {
+					name = "vertical_divider_1"
+					texture = "gfx/interface/base_parts/vertical_line_y100bd_alpha.dds"
+					spriteType = corneredtiled
+					spriteborder = { 0 50 }
+				}
+			}
+
+			flowcontainer = {
+				name = "my_picture_and_basic_info"
+				direction = vertical
+				spacing = 450
+				position = { -125 0 }
+				size = { 200 375 }
+				parentanchor = top|right
+				icon = {
+					name = "my_picture"
+					size = { 328 346 }
+					#position = { -19 0 }
+					parentanchor = top|hcenter
+					texture = "gfx/resume/hamza.png"
+				}
+				textbox = {
+					name = "basic_profile_text"
+					text = "basic_profile_txt"
+					#position = { -1 115 }
+					size = { 350 600 }
+					parentanchor = bottom|hcenter
+					using = BaseFontM
+					using = Black_FontColor
+					fontsize = 25
+					multiline = yes
+				}
+			}
+
+			widget = {
+				name = "profile_page"
+				position = { 215 0 }
+				size = { 750 575 }
+				parentanchor = top|left
+				visible = "[GetVariableSystem.HasValue('ResumeSection', 'Profile')]"
+
+				flowcontainer = {
+					name = "profile_flowcontainer"
+					direction = vertical
+					parentanchor = top|left
+					spacing = 15
+					container = {
+						name = "education"
+						
+						sub_header = {
+							size = { @subheader_size 28 }
+		
+							blockoverride "Title_text"
+							{
+								text = "Education"
+							}
+						}
+						textbox = {
+							name = "education_profile_text"
+							text = "education_profile_txt"
+							position = { 5 25 }
+							size = { 100 145 }
+							parentanchor = top|left
+							using = BaseFontM
+							using = Black_FontColor
+							fontsize = 25
+						}
+					}
+					container = {
+						name = "abilities"
+
+						sub_header = {
+							size = { @subheader_size 28 }
+
+							blockoverride "Title_text"
+							{
+								text = "Abilities"
+							}
+						}
+						textbox = {
+							name = "abilities_profile_text"
+							text = "abilities_profile_txt"
+							position = { 5 33 }
+							size = { @subheader_size 280 }
+							parentanchor = top|left
+							using = BaseFontM
+							using = Black_FontColor
+							fontsize = 25
+						}
+					}
+					container = {
+						name = "github"
+
+						sub_header = {
+							size = { @subheader_size 28 }
+
+							blockoverride "Title_text"
+							{
+								text = "Github"
+							}
+						}
+						textbox = {
+							name = "github_profile_text"
+							text = "github_profile_txt"
+							position = { 5 33 }
+							size = { @subheader_size 195 }
+							parentanchor = top|left
+							using = BaseFontM
+							using = Black_FontColor
+							fontsize = 25
+						}
+					}
+				}
+			}
+
+			widget = {
+				name = "skills_page"
+				position = { 215 0 }
+				size = { 750 575 }
+				parentanchor = top|left
+				visible = "[Not(GetVariableSystem.Exists('ResumeSection'))]"
+				container = {
+					name = "skill_bar"
+					parentanchor = top|left
+
+					@skill_progress_size = 550
+					sub_header = {
+						size = { @subheader_size 28 }
+
+						blockoverride "Title_text"
+						{
+							text = "skills_bar_txt"
+						}
+						blockoverride "Max_text_width"
+						{
+							max_width = 999
+						}
+					}
+					flowcontainer = {
+						name = "skillz_flowcontainer"
+						direction = vertical
+						parentanchor = top|left
+						position = { 0 27 }
+						spacing = 5
+
+						textbox = {
+							name = "look_at_the_tooltips_for_more_details_text"
+							text = "look_at_the_tooltips_for_more_details_tt"
+							#position = { 5 0 }
+							size = { @subheader_size 77 }
+							parentanchor = top|left
+							using = BaseFontM
+							using = Black_FontColor
+							multiline = yes
+							fontsize = 25
+						}
+						container = {
+							name = "python_skill"
+							textbox = {
+								name = "skills_text"
+								text = "Python"
+								position = { 5 30 }
+								autoresize = yes
+								parentanchor = left|hcenter
+								using = BaseFontM
+								using = Black_FontColor
+								fontsize = 35
+							}
+							icon = {
+								name = "progress_frame"
+								texture = "gfx/interface/base_parts/progressbar_background_frame.dds"
+								position = { 171 50 }
+								minimumsize = { 0 7 }
+								size = { @skill_progress_size 19 }
+								color = { 0.7 0.7 0.7 1 }
+								progressbar = {
+									position = { 0 0 }
+									size = { 100% 100% }
+									using = progressbar_aqua_marine
+									tooltip = "python_skill_desc"
+									value = "[FixedPointToProgressbarValue('(CFixedPoint)0.67')]"
+								}
+							}
+						}
+						container = {
+							name = "cpp_skill"
+							textbox = {
+								name = "skills_text"
+								text = "C++"
+								position = { 5 30 }
+								autoresize = yes
+								parentanchor = left|hcenter
+								using = BaseFontM
+								using = Black_FontColor
+								fontsize = 35
+							}
+							icon = {
+								name = "progress_frame"
+								texture = "gfx/interface/base_parts/progressbar_background_frame.dds"
+								position = { 171 50 }
+								minimumsize = { 0 7 }
+								size = { @skill_progress_size 19 }
+								color = { 0.7 0.7 0.7 1 }
+								progressbar = {
+									position = { 0 0 }
+									size = { 100% 100% }
+									using = progressbar_aqua_marine
+									tooltip = "cpp_skill_desc"
+									value = "[FixedPointToProgressbarValue('(CFixedPoint)0.40')]"
+								}
+							}
+						}
+						container = {
+							name = "csharp_skill"
+							textbox = {
+								name = "skills_text"
+								text = "C## Unity"
+								position = { 5 30 }
+								autoresize = yes
+								parentanchor = left|hcenter
+								using = BaseFontM
+								using = Black_FontColor
+								fontsize = 32
+							}
+							icon = {
+								name = "progress_frame"
+								texture = "gfx/interface/base_parts/progressbar_background_frame.dds"
+								position = { 171 50 }
+								minimumsize = { 0 7 }
+								size = { @skill_progress_size 19 }
+								color = { 0.7 0.7 0.7 1 }
+								progressbar = {
+									position = { 0 0 }
+									size = { 100% 100% }
+									using = progressbar_aqua_marine
+									tooltip = "csharp_skill_desc"
+									value = "[FixedPointToProgressbarValue('(CFixedPoint)0.44')]"
+								}
+							}
+						}
+						container = {
+							name = "pdx_script_skill"
+							textbox = {
+								name = "skills_text"
+								text = "PDX Script"
+								position = { 5 30 }
+								autoresize = yes
+								parentanchor = left|hcenter
+								using = BaseFontM
+								using = Black_FontColor
+								fontsize = 30
+							}
+							icon = {
+								name = "progress_frame"
+								texture = "gfx/interface/base_parts/progressbar_background_frame.dds"
+								position = { 171 50 }
+								minimumsize = { 0 7 }
+								size = { @skill_progress_size 19 }
+								color = { 0.7 0.7 0.7 1 }
+								progressbar = {
+									position = { 0 0 }
+									size = { 100% 100% }
+									using = progressbar_aqua_marine
+									tooltip = "pdx_script_skill_desc"
+									value = "[FixedPointToProgressbarValue('(CFixedPoint)0.95')]"
+								}
+							}
+						}
+						container = {
+							name = "pdx_gui_skill"
+							textbox = {
+								name = "skills_text"
+								text = "PDX GUI"
+								position = { 5 30 }
+								autoresize = yes
+								parentanchor = left|hcenter
+								using = BaseFontM
+								using = Black_FontColor
+								fontsize = 30
+							}
+							icon = {
+								name = "progress_frame"
+								texture = "gfx/interface/base_parts/progressbar_background_frame.dds"
+								position = { 171 50 }
+								minimumsize = { 0 7 }
+								size = { @skill_progress_size 19 }
+								color = { 0.7 0.7 0.7 1 }
+								progressbar = {
+									position = { 0 0 }
+									size = { 100% 100% }
+									using = progressbar_aqua_marine
+									tooltip = "pdx_gui_skill_desc"
+									value = "[FixedPointToProgressbarValue('(CFixedPoint)0.89')]"
+								}
+							}
+						}
+					}
+				}
+			}
+			widget = {
+				name = "projects_page"
+				position = { 215 0 }
+				size = { 950 875 }
+				parentanchor = top|left
+				visible = "[GetVariableSystem.HasValue('ResumeSection', 'Projects')]"
+				container = {
+					name = "project_desc"
+					sub_header = {
+						size = { @subheader_size 28 }
+
+						blockoverride "Title_text"
+						{
+							text = "Projects"
+						}
+					}
+					textbox = {
+						name = "project_description"
+						text = "projects_desc"
+						position = { 5 5 }
+						size = { @subheader_size 135 }
+						parentanchor = top|left
+						using = BaseFontM
+						using = Black_FontColor
+						multiline = yes
+						fontsize = 25
+					}
+				}
+				container = {
+					name = "project_title_container"
+					position = { 0 120 }
+					sub_header = {
+						size = { @subheader_size 28 }
+						visible = "[Not(GetVariableSystem.Exists('ProjectPage'))]"
+
+						blockoverride "Title_text"
+						{
+							text = "troll_project"
+						}
+					}
+					sub_header = {
+						size = { @subheader_size 28 }
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page2')]"
+
+						blockoverride "Title_text"
+						{
+							text = "meme_project"
+						}
+					}
+					sub_header = {
+						size = { @subheader_size 28 }
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page3')]"
+
+						blockoverride "Title_text"
+						{
+							text = "pdx_project"
+						}
+					}
+					sub_header = {
+						size = { @subheader_size 28 }
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page4')]"
+
+						blockoverride "Title_text"
+						{
+							text = "unity_project"
+						}
+					}
+				}
+				scrollarea = {
+					size = { 875 665 }
+					position = { 0 150 }
+					scrollbarpolicy_horizontal = always_off
+					
+					using = VerticalScrollAreaCutOff
+					scrollbar_vertical = {
+						using = VerticalScrollBar
+					}
+					scrollwidget = {
+						flowcontainer = {
+							name = "project_flowcontainer"
+							position = { 0 0 }
+							direction = vertical
+							ignoreinvisible = yes
+							spacing = 25
+							flowcontainer = {
+								name = "troll_project"
+								visible = "[Not(GetVariableSystem.Exists('ProjectPage'))]" # Page 1
+								direction = vertical
+								ignoreinvisible = yes
+								spacing = 5
+								textbox = {
+									name = "project_description"
+									text = "troll_project_desc"
+									#position = { 5 0 }
+									size = { @subheader_size 140 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								icon = {
+									name = "steam_rick_roll_ss"
+									texture = "gfx/resume/projects/steam_rickroll_screenshot.png"
+									size = { 655 500 }
+									#position = { 5 125 }
+								}
+								textbox = {
+									name = "project_description2"
+									text = "troll_project_desc2"
+									#position = { 5 575 }
+									size = { @subheader_size 50 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								container = {
+									icon = {
+										name = "rick_roll_ss"
+										texture = "gfx/resume/projects/rickroll_screenshot.png"
+										size = { 650 400 }
+										#position = { 5 675 }
+									}
+									button = {
+										name = "rick_roll_spoiler"
+										tooltip = "spoiler_tt"
+										parentanchor = left|vcenter
+										visible = "[Not(GetVariableSystem.Exists('RickRollSpoiler'))]"
+										texture = "gfx/resume/spoiler.png"
+										clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+										onclick = "[GetVariableSystem.Toggle('RickRollSpoiler')]"
+										size = { 650 400 }
+										text = "SPOILER"
+										fontsize = 50
+										using = BaseFontM
+										using = Black_FontColor
+									}
+								}
+								widget = {
+									name = "space_providerr"
+									size = { @subheader_size 230 }
+									visible = "[GetVariableSystem.Exists('RickRollSpoiler')]"
+									textbox = {
+										name = "project_description3"
+										text = "troll_project_desc3"
+										#position = { 5 1025 }
+										size = { @subheader_size 200 }
+										parentanchor = top|left
+										using = BaseFontM
+										using = Black_FontColor
+										multiline = yes
+										fontsize = 25
+									}
+								}
+							}
+							flowcontainer = {
+								name = "meme_project"
+								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page2')]"
+								direction = vertical
+								spacing = 5
+								textbox = {
+									name = "project_description"
+									text = "meme_project_desc"
+									#position = { 5 5 }
+									size = { @subheader_size 200 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								widget = {
+									name = "space_provider"
+									size = { 650 545 }
+									#position = { 5 175 }
+									icon = {
+										name = "steam_ck3_realtime_ss"
+										texture = "gfx/resume/projects/steam_ck3_realtime_screenshot.png"
+										size = { 650 500 }
+									}
+								}
+							}
+							flowcontainer = {
+								name = "pdx_project"
+								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page3')]"
+								direction = vertical
+								spacing = 5
+								textbox = {
+									name = "project_description"
+									text = "pdx_project_desc"
+									#position = { 5 5 }
+									size = { @subheader_size 330 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								icon = {
+									name = "pdx_project_screenshot_1"
+									texture = "gfx/resume/projects/pdx_project_screenshot_1.png"
+									size = { 646 510 }
+									#position = { 5 320 }
+								}
+								textbox = {
+									name = "project_description2"
+									text = "pdx_project_desc2"
+									#position = { 5 775 }
+									size = { @subheader_size 120 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								icon = {
+									name = "pdx_project_screenshot_2"
+									texture = "gfx/resume/projects/pdx_project_screenshot_2.png"
+									size = { 650 375 }
+									#position = { 5 940 }
+								}
+								textbox = {
+									name = "project_description3"
+									text = "pdx_project_desc3"
+									#position = { 5 1240 }
+									size = { @subheader_size 100 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								icon = {
+									name = "pdx_project_screenshot_3"
+									texture = "gfx/resume/projects/pdx_project_screenshot_3.png"
+									size = { 600 665 }
+									#position = { 5 1395 }
+								}
+								textbox = {
+									name = "project_description4"
+									text = "pdx_project_desc4"
+									#position = { 5 1975 }
+									size = { @subheader_size 75 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								icon = {
+									name = "pdx_project_screenshot_4"
+									texture = "gfx/resume/projects/pdx_project_screenshot_4.png"
+									size = { 650 470 }
+									#position = { 5 2120 }
+								}
+								widget = {
+									name = "space_providerrr"
+									size = { 670 240 }
+									textbox = {
+										name = "project_description5"
+										text = "pdx_project_desc5"
+										#position = { 4 2530 }
+										size = { 670 200 }
+										parentanchor = top|left
+										using = BaseFontM
+										using = Black_FontColor
+										multiline = yes
+										fontsize = 25
+									}
+								}
+							}
+							flowcontainer = {
+								name = "unity_project"
+								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page4')]"
+								direction = vertical
+								spacing = 5
+								textbox = {
+									name = "project_description"
+									text = "unity_project_desc"
+									#position = { 5 5 }
+									size = { @subheader_size 300 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								container = {
+									download_task_gif = {
+										name = "download_task_gif"
+										parentanchor = top|left
+									}
+									button = {
+										name = "download_task_gif_spoiler"
+										tooltip = "spoiler_tt"
+										parentanchor = left|vcenter
+										visible = "[Not(GetVariableSystem.Exists('DownloadTaskGifSpoiler'))]"
+										texture = "gfx/resume/spoiler.png"
+										clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+										onclick = "[GetVariableSystem.Toggle('DownloadTaskGifSpoiler')]"
+										onclick = "[PdxGuiTriggerAllAnimations('download_task_frame1')]"
+										size = { 650 450 }
+										text = "SPOILER"
+										fontsize = 50
+										using = BaseFontM
+										using = Black_FontColor
+									}
+								}
+								textbox = {
+									name = "project_description2"
+									text = "unity_project_desc2"
+									#position = { 5 5 }
+									size = { @subheader_size 50 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								icon = {
+									name = "unity_project_screenshot_2"
+									texture = "gfx/resume/projects/unity_project_screenshot_2.png"
+									size = { 650 470 }
+									#position = { 5 2120 }
+								}
+								icon = {
+									name = "unity_project_screenshot_3"
+									texture = "gfx/resume/projects/unity_project_screenshot_3.png"
+									size = { 650 470 }
+									#position = { 5 2120 }
+								}
+								textbox = {
+									name = "project_description3"
+									text = "unity_project_desc3"
+									#position = { 5 5 }
+									size = { @subheader_size 50 }
+									parentanchor = top|left
+									using = BaseFontM
+									using = Black_FontColor
+									multiline = yes
+									fontsize = 25
+								}
+								icon = {
+									name = "unity_project_screenshot_4"
+									texture = "gfx/resume/projects/unity_project_screenshot_4.png"
+									size = { 600 570 }
+									#position = { 5 2120 }
+								}
+								widget = {
+									name = "space_providerrrr"
+									size = { @subheader_size 185 }
+									textbox = {
+										name = "project_description4"
+										text = "unity_project_desc4"
+										#position = { 5 5 }
+										size = { @subheader_size 125 }
+										parentanchor = top|left
+										using = BaseFontM
+										using = Black_FontColor
+										multiline = yes
+										fontsize = 25
+									}
+								}
+							}
+						}
+					}
+				}
+				widget = {
+					name = "page_buttons"
+					size = { 855 28 }
+					position = { -45 -90 }
+					parentanchor = bottom|hcenter
+
+					button = {
+						name = "previous_page1"
+						tooltip = "go_previous_before_tt"
+						parentanchor = left|vcenter
+						visible = "[Not(GetVariableSystem.Exists('ProjectPage'))]" # Page 1
+						texture = "gfx/interface/button_arrow_previous_page.dds"
+						clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+						size = { 35 35 }
+						enabled = no
+					}
+					button = {
+						name = "previous_page2"
+						tooltip = "go_previous_before_tt"
+						parentanchor = left|vcenter
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page2')]"
+						texture = "gfx/interface/button_arrow_previous_page.dds"
+						clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+						onclick = "[GetVariableSystem.Clear('ProjectPage')]"
+						size = { 35 35 }
+					}
+					button = {
+						name = "previous_page3"
+						tooltip = "go_previous_before_tt"
+						parentanchor = left|vcenter
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page3')]"
+						texture = "gfx/interface/button_arrow_previous_page.dds"
+						clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+						onclick = "[GetVariableSystem.Set('ProjectPage', 'Page2')]"
+						size = { 35 35 }
+					}
+					button = {
+						name = "previous_page4"
+						tooltip = "go_previous_before_tt"
+						parentanchor = left|vcenter
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page4')]"
+						texture = "gfx/interface/button_arrow_previous_page.dds"
+						clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+						onclick = "[GetVariableSystem.Set('ProjectPage', 'Page3')]"
+						size = { 35 35 }
+					}
+					button = {
+						name = "next_page1"
+						tooltip = "advance_to_next_page_tt"
+						parentanchor = right|vcenter
+						visible = "[Not(GetVariableSystem.Exists('ProjectPage'))]"
+						texture = "gfx/interface/button_arrow_next_page.dds"
+						clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+						onclick = "[GetVariableSystem.Set('ProjectPage', 'Page2')]"
+						size = { 35 35 }
+					}
+					button = {
+						name = "next_page2"
+						tooltip = "advance_to_next_page_tt"
+						parentanchor = right|vcenter
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page2')]"
+						texture = "gfx/interface/button_arrow_next_page.dds"
+						clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+						onclick = "[GetVariableSystem.Set('ProjectPage', 'Page3')]"
+						size = { 35 35 }
+					}
+					button = {
+						name = "next_page3"
+						tooltip = "advance_to_next_page_tt"
+						parentanchor = right|vcenter
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page3')]"
+						texture = "gfx/interface/button_arrow_next_page.dds"
+						clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+						onclick = "[GetVariableSystem.Set('ProjectPage', 'Page4')]"
+						size = { 35 35 }
+					}
+					button = {
+						name = "next_page4"
+						tooltip = "advance_to_next_page_tt"
+						parentanchor = right|vcenter
+						visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page4')]"
+						texture = "gfx/interface/button_arrow_next_page.dds"
+						clicksound = "event:/SFX/UI/Generic/2.0/sfx_ui_button_primary"
+						size = { 35 35 }
+						enabled = no
+					}
+				}
+			}
+			widget = {
+				name = "objective_page"
+				position = { 215 0 }
+				size = { 750 575 }
+				parentanchor = top|left
+				visible = "[GetVariableSystem.HasValue('ResumeSection', 'Objective')]"
+
+				container = {
+					name = "objective"
+
+					sub_header = {
+						size = { @subheader_size 28 }
+		
+						blockoverride "Title_text"
+						{
+							text = "Objective"
+						}
+					}
+					textbox = {
+						name = "objective_text"
+						text = "objective_txt"
+						position = { 0 5 }
+						size = { @subheader_size 155 }
+						parentanchor = top|left
+						using = BaseFontM
+						using = Black_FontColor
+						multiline = yes
+						fontsize = 25
+					}
+				}
+			}
+			widget = {
+				name = "hobby_page"
+				position = { 215 0 }
+				size = { 750 775 }
+				parentanchor = top|left
+				visible = "[GetVariableSystem.HasValue('ResumeSection', 'Hobbies')]"
+
+				container = {
+					name = "hobyy_container"
+					sub_header = {
+						size = { @subheader_size 28 }
+
+						blockoverride "Title_text"
+						{
+							text = "Hobbies"
+						}
+					}
+					flowcontainer = {
+						name = "hobby_text_flowcontainer"
+						position = { 0 50 }
+						direction = vertical
+						spacing = 80
+
+						textbox = {
+							name = "hover_over_the_text_text"
+							text = "hover_over_the_text_txt"
+							parentanchor = top|left
+							autoresize = yes
+							using = BaseFontM
+							using = Black_FontColor
+							fontsize = 25
+						}
+						textbox = {
+							name = "first_hobby"
+							text = "paradox_video_games"
+							tooltip = "paradox_video_games_tt"
+							parentanchor = top|left
+							autoresize = yes
+							using = BaseFontM
+							using = Black_FontColor
+							fontsize = 25
+						}
+						textbox = {
+							name = "second_hobby"
+							text = "strategy_video_games"
+							tooltip = "strategy_video_games_tt"
+							parentanchor = top|left
+							autoresize = yes
+							using = BaseFontM
+							using = Black_FontColor
+							fontsize = 25
+						}
+						textbox = {
+							name = "third_hobby"
+							text = "coding_hobby"
+							tooltip = "coding_hobby_tt"
+							parentanchor = top|left
+							autoresize = yes
+							using = BaseFontM
+							using = Black_FontColor
+							fontsize = 25
+						}
+						textbox = {
+							name = "fourth_hobby"
+							text = "history_n_politics"
+							tooltip = "history_n_politics_tt"
+							parentanchor = top|left
+							autoresize = yes
+							using = BaseFontM
+							using = Black_FontColor
+							fontsize = 25
+						}
+					}
+				}
+			}
+		}
+	}
+}
