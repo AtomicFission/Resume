@@ -776,7 +776,7 @@ widget = {
 
 						blockoverride "Title_text"
 						{
-							text = "troll_project"
+							text = "pdx_project"
 						}
 					}
 					sub_header = {
@@ -785,7 +785,7 @@ widget = {
 
 						blockoverride "Title_text"
 						{
-							text = "meme_project"
+							text = "unity_project"
 						}
 					}
 					sub_header = {
@@ -794,7 +794,7 @@ widget = {
 
 						blockoverride "Title_text"
 						{
-							text = "pdx_project"
+							text = "troll_project"
 						}
 					}
 					sub_header = {
@@ -803,7 +803,7 @@ widget = {
 
 						blockoverride "Title_text"
 						{
-							text = "unity_project"
+							text = "meme_project"
 						}
 					}
 				}
@@ -825,7 +825,7 @@ widget = {
 							spacing = 25
 							flowcontainer = {
 								name = "troll_project"
-								visible = "[Not(GetVariableSystem.Exists('ProjectPage'))]" # Page 1
+								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page3')]" # Page 3
 								direction = vertical
 								ignoreinvisible = yes
 								spacing = 5
@@ -898,7 +898,7 @@ widget = {
 							}
 							flowcontainer = {
 								name = "meme_project"
-								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page2')]"
+								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page4')]"
 								direction = vertical
 								spacing = 5
 								textbox = {
@@ -925,7 +925,7 @@ widget = {
 							}
 							flowcontainer = {
 								name = "pdx_project"
-								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page3')]"
+								visible = "[Not(GetVariableSystem.Exists('ProjectPage'))]" # Page 1
 								direction = vertical
 								spacing = 5
 								textbox = {
@@ -1014,7 +1014,7 @@ widget = {
 							}
 							flowcontainer = {
 								name = "unity_project"
-								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page4')]"
+								visible = "[GetVariableSystem.HasValue('ProjectPage', 'Page2')]"
 								direction = vertical
 								spacing = 5
 								textbox = {
