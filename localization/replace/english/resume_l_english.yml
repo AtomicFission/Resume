@@ -1,10 +1,10 @@
-﻿l_english:
+l_english:
  # General Txt
  basic_profile_txt:0 "Hello there! My name is #Y Hamza Elsayed#!,\n\nI am #Y 16 years old#!,\n\nI live in #Y Mississauga, Canada#!,\n\nand you can contact me at #Y hamza.eem@@gmail.com#!."
  education_profile_txt:0 "John Fraser Secondary School                                                                                2019 - Present\nWorking towards abtaining O.S.S.D\n(Ontario Secondary School Diploma)"
  skills_bar_txt:0 "Skill                              |       Beginner       |       Intermediate       |       Advanced       |       Expert       |"
  abilities_profile_txt:0 "@bullet_point_black! Fast Learner\n\n@bullet_point_black! Confident & Committed\n\n@bullet_point_black! Motivated & Passionate\n\n@bullet_point_black! Young & Energetic"
- github_profile_txt:0 "My Github is #Y https://github.com/AtomicFission#!\nIt includes my projects in #Y Python#! and #Y PDX Script#!\n\nCodes for private repos will be provided on request\nInformation on Unity projects cannot be retrieved through my GitHub"
+ github_profile_txt:0 "My Github is #Y https://github.com/AtomicFission#!\nIt includes my projects in #Y Python#! and #Y PDX Script#!\n\nInformation on Unity projects cannot be retrieved through my GitHub\nCodes for private repos and my Unity Project will be provided on request"
  hobbies_profile_txt:0 "@bullet_point_black! Paradox Video Games\n\n\n\n\n@bullet_point_black! Strategy Video Games\n\n\n\n\n@bullet_point_black! Coding\n\n\n\n\n@bullet_point_black! Learning about History & Politics"
  objective_txt:0 "A dedicated and committed learner looking to become a C++ Game Developer at Paradox Interactive :)"
  
@@ -26,22 +26,22 @@
  pdx_script_skill_desc:0 "#T PDX Script #!\n\nBy far, I would say I am most skilled with #Y PDX Script#! at an expert's level. While I still have much to learn, #Y PDX Script#! is a modding language and not an open-ended language. Hence, I can confidently say I am capable of doing #G ANYTHING#! the language allows me to"
  pdx_gui_skill_desc:0 "#T PDX GUI #!\n\nLike #Y PDX Script#!, I am skilled with #Y PDX GUI#!, however, I have yet to learn how to work with shaders for instance. Still, I know most of the language (particularly in Imperator: Rome and CK3) and can design everything #Y to do#! and #Y to look#! how I want."
  # Project Titles
- troll_project:0 "The \"Troll\" Project (1/4)"
- meme_project:0 "The \"Meme\" Project (2/4)"
- pdx_project:0 "The \"PDX\" Project (3/4)"
- unity_project:0 "The \"Unity\" Project (4/4)"
+ pdx_project:0 "The \"PDX\" Project (1/4)"
+ unity_project:0 "The \"Unity\" Project (2/4)"
+ troll_project:0 "The \"Troll\" Project (3/4)"
+ meme_project:0 "The \"Meme\" Project (4/4)"
  # Project Desc
  projects_desc:0 "In this page, I show a list of exciting projects I worked on whether it may be in #Y C## Unity#! or #Y PDX Script/GUI#!"
- troll_project_desc:0 "What better way to start off by showing my \"troll\" project\nAs you can see in the screenshot below, I made a mod called 'Free DLC: Battle for the Bosporus'"
+ troll_project_desc:0 "What better project to show off next than the \"troll\" project\nAs you can see in the screenshot below, I made a mod called 'Free DLC: Battle for the Bosporus'"
  troll_project_desc2:0 "However, little does the user know, when he runs the mod, he will... *** drum roll ***"
  troll_project_desc3:0 "...get rick rolled!\n\nDon't worry, I would never make an actual mod that recreates a DLC for free\n\nOh and as a side note incase you haven't noticed, you JUST got rick rolled as well :)"
  meme_project_desc:0 "Not only is there the \"Troll\" project, but also the \"Meme\" project\nThis mod which is known as #Y CK3 Real Time#! is by far the most popular mod I made\n\nAs the name suggests, you would have to leave Ck3 running for 24 hours straight before a day in-game passes"
- pdx_project_desc:0 "Now on to the real deal\nI would like to show my \"PDX\" game related project\nIt is a mod that integrates Civilization 5/6's Wonder system into Imperator: Rome\n\nHere are a few screenshots to depict the works of the project\n\nFirst, there is a list of wonders that are buildable based on how advanced a nation is\nThen, if all the requirements are met: correct terrain, money, etc, the country/player can build the wonder in return for permanent state benefits"
+ pdx_project_desc:0 "First, allow me to introduce the real deal\nI would like to show my \"PDX\" game related project\nIt is a mod that integrates Civilization 5/6's Wonder system into Imperator: Rome\n\nHere are a few screenshots to depict the works of the project\n\nFirst, there is a list of wonders that are buildable based on how advanced a nation is\nThen, if all the requirements are met: correct terrain, money, etc, the country/player can build the wonder in return for permanent state benefits"
  pdx_project_desc2:0 "Once the construction begins, the days tick by and the progress bar moves up\nFurthermore, an event can pop up to speed up/slow down the construction of the wonder"
  pdx_project_desc3:0 "Finally, when the progress bar reaches 100.0%, an event pops up where the wonder is built and gives the state benefits"
  pdx_project_desc4:0 "A 3D model also appears on the province in which the wonder is built (this applies to all provinces in game, not just Lavinium)"
  pdx_project_desc5:0 "You may be wondering why I picked a project to show from 1.5 and not 2.0\n\nWell, while I did lots of GUI/Scripting in 2.0, those projects weren't my main focus as I was working on Unity and was taking a break from coding, and hence weren't the most polished"
- unity_project_desc:0 "Last but certainly not least, I would like to show that I have experience with using #Y Game Engines#!, more specifically #Y Unity#!\n\nJust like my projects using PDX language and Python, I mainly specialize in GUI/Scripting\n\nI recreated Among Us 'Tasks'\nFor instance, this download task"
+ unity_project_desc:0 "Next up, I would like to show that I have experience with using #Y Game Engines#!, more specifically #Y Unity#!\n\nJust like my projects using PDX language and Python, I mainly specialize in GUI/Scripting\n\nI recreated Among Us 'Tasks'\nFor instance, this download task"
  unity_project_desc2:0 "I also made things like opening and closing a sliding door just like in Among Us"
  unity_project_desc3:0 "Type in the code recreation as well (Oxygen Sabotage Fix Recreation)"
  unity_project_desc4:0 "These were just a few of what I made and the easiest to show\n\nIf you want to see more, I can show the Unity Project code"
